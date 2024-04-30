@@ -1,7 +1,8 @@
-const { expect } = require("playwright/test");
+const { test, expect } = require('playwright/test');
 const LoginPage = require('../Pages/LoginPage');
 
-test('Login on the page',async({page})=>{
+test('Login on the page', async ({ page }) => {
   await page.goto('https://www.uadreams.com/');
-  new LoginPage(page);
-})
+  const loginPage = new LoginPage(page);
+  await loginPage.loginToWebSite();
+});
